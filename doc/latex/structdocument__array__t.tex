@@ -1,0 +1,75 @@
+\hypertarget{structdocument__array__t}{}\section{document\+\_\+array\+\_\+t Struct Reference}
+\label{structdocument__array__t}\index{document\+\_\+array\+\_\+t@{document\+\_\+array\+\_\+t}}
+
+
+ドキュメントの可変長配列  
+
+
+
+
+{\ttfamily \#include $<$document\+\_\+repository.\+h$>$}
+
+
+
+Collaboration diagram for document\+\_\+array\+\_\+t\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{structdocument__array__t__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \hyperlink{structdocument__array__t_a80cf2efb148f704dedae66740b418bab}{sz}
+\item 
+size\+\_\+t \hyperlink{structdocument__array__t_a5ffc023dad1cae730d69ace33c2f4853}{n}
+\item 
+\hyperlink{structdocument__t}{document\+\_\+t} $\ast$ \hyperlink{structdocument__array__t_a78b00a75f138da85c3342bc4cbd14ee9}{a}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+ドキュメントの可変長配列 
+
+\begin{DoxySeeAlso}{See also}
+document\+\_\+array\+\_\+init 
+
+document\+\_\+array\+\_\+destroy 
+
+document\+\_\+array\+\_\+pushback
+\end{DoxySeeAlso}
+使用例
+
+\hyperlink{structdocument__array__t}{document\+\_\+array\+\_\+t} da\mbox{[}1\mbox{]};
+
+document\+\_\+array\+\_\+init(da);
+
+\hyperlink{structdocument__t}{document\+\_\+t} doc = \{ ... \};
+
+document\+\_\+array\+\_\+pushback(da, doc); 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structdocument__array__t_a78b00a75f138da85c3342bc4cbd14ee9}\label{structdocument__array__t_a78b00a75f138da85c3342bc4cbd14ee9}} 
+\index{document\+\_\+array\+\_\+t@{document\+\_\+array\+\_\+t}!a@{a}}
+\index{a@{a}!document\+\_\+array\+\_\+t@{document\+\_\+array\+\_\+t}}
+\subsubsection{\texorpdfstring{a}{a}}
+{\footnotesize\ttfamily \hyperlink{structdocument__t}{document\+\_\+t}$\ast$ document\+\_\+array\+\_\+t\+::a}
+
+ドキュメントの配列 \mbox{\Hypertarget{structdocument__array__t_a5ffc023dad1cae730d69ace33c2f4853}\label{structdocument__array__t_a5ffc023dad1cae730d69ace33c2f4853}} 
+\index{document\+\_\+array\+\_\+t@{document\+\_\+array\+\_\+t}!n@{n}}
+\index{n@{n}!document\+\_\+array\+\_\+t@{document\+\_\+array\+\_\+t}}
+\subsubsection{\texorpdfstring{n}{n}}
+{\footnotesize\ttfamily size\+\_\+t document\+\_\+array\+\_\+t\+::n}
+
+現在埋まっている要素数(n $<$= sz) \mbox{\Hypertarget{structdocument__array__t_a80cf2efb148f704dedae66740b418bab}\label{structdocument__array__t_a80cf2efb148f704dedae66740b418bab}} 
+\index{document\+\_\+array\+\_\+t@{document\+\_\+array\+\_\+t}!sz@{sz}}
+\index{sz@{sz}!document\+\_\+array\+\_\+t@{document\+\_\+array\+\_\+t}}
+\subsubsection{\texorpdfstring{sz}{sz}}
+{\footnotesize\ttfamily size\+\_\+t document\+\_\+array\+\_\+t\+::sz}
+
+配列aのサイズ 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/tau/public\+\_\+html/lecture/operating\+\_\+systems/gen/unagi/tau/unagi/src/server/\hyperlink{document__repository_8h}{document\+\_\+repository.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,162 @@
+\hypertarget{unagi__server_8c}{}\section{/home/tau/public\+\_\+html/lecture/operating\+\_\+systems/gen/unagi/tau/unagi/src/server/unagi\+\_\+server.c File Reference}
+\label{unagi__server_8c}\index{/home/tau/public\+\_\+html/lecture/operating\+\_\+systems/gen/unagi/tau/unagi/src/server/unagi\+\_\+server.\+c@{/home/tau/public\+\_\+html/lecture/operating\+\_\+systems/gen/unagi/tau/unagi/src/server/unagi\+\_\+server.\+c}}
+
+
+unagi server メインファイル  
+
+
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$netinet/in.\+h$>$}\newline
+{\ttfamily \#include $<$netinet/tcp.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}unagi\+\_\+utility.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}document\+\_\+repository.\+h\char`\"{}}\newline
+Include dependency graph for unagi\+\_\+server.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{unagi__server_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structcmdline__options__t}{cmdline\+\_\+options\+\_\+t}
+\begin{DoxyCompactList}\small\item\em サーバのコマンドラインオプションを表すデータ構造 \end{DoxyCompactList}\item 
+struct \hyperlink{structserver__t}{server\+\_\+t}
+\begin{DoxyCompactList}\small\item\em サーバを表すデータ構造 \end{DoxyCompactList}\item 
+struct \hyperlink{structrequest__t}{request\+\_\+t}
+\begin{DoxyCompactList}\small\item\em クライアントからのリクエストを表すデータ構造 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{unagi__server_8c_a5f07c7dadef9a7101111edab4f7ad98d}\label{unagi__server_8c_a5f07c7dadef9a7101111edab4f7ad98d}} 
+\#define \hyperlink{unagi__server_8c_a5f07c7dadef9a7101111edab4f7ad98d}{options\+\_\+default\+\_\+port}~0
+\begin{DoxyCompactList}\small\item\em デフォルトのポート番号(0 \+: O\+Sに選ばせる) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{unagi__server_8c_a76204a4a1bf3968aee3a7af2c09d6b70}\label{unagi__server_8c_a76204a4a1bf3968aee3a7af2c09d6b70}} 
+\#define \hyperlink{unagi__server_8c_a76204a4a1bf3968aee3a7af2c09d6b70}{options\+\_\+default\+\_\+qlen}~1000
+\begin{DoxyCompactList}\small\item\em デフォルトの接続待ちキュー \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{unagi__server_8c_ae757f1a505785321d99a471883df9541}\label{unagi__server_8c_ae757f1a505785321d99a471883df9541}} 
+\#define \hyperlink{unagi__server_8c_ae757f1a505785321d99a471883df9541}{options\+\_\+default\+\_\+log}~\char`\"{}unagi.\+log\char`\"{}
+\begin{DoxyCompactList}\small\item\em デフォルトのログファイル名 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2}{request\+\_\+kind\+\_\+t} \{ \newline
+\hyperlink{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2a939edab734abb6b3618470014284c9bb}{request\+\_\+kind\+\_\+put}, 
+\hyperlink{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2a3b425dde6f4f1c9af3b7364789a7861a}{request\+\_\+kind\+\_\+get}, 
+\hyperlink{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2a561c4bcc9e55396b0f97b4689b858cce}{request\+\_\+kind\+\_\+getc}, 
+\hyperlink{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2add50a1ff1f7fed7f2d79766a99661650}{request\+\_\+kind\+\_\+dump}, 
+\newline
+\hyperlink{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2a03dcc800e7750f6b6738b7e8cfbf175d}{request\+\_\+kind\+\_\+dumpc}, 
+\hyperlink{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2afc515b19b1b933e6ba491cc96528bdae}{request\+\_\+kind\+\_\+discon}, 
+\hyperlink{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2a8d686e8fb6bb9044d4c36920e5c6f442}{request\+\_\+kind\+\_\+quit}, 
+\hyperlink{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2a4d0a6943b5e744685646ad25c21e24f2}{request\+\_\+kind\+\_\+invalid}
+ \}\begin{DoxyCompactList}\small\item\em クライアントからのリクエストの種類 \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{unagi__server_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em メイン関数 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{unagi__server_8c_a212b47c04ff57543a47a8d70f841c9db}{max\+\_\+inst\+\_\+len} = 20
+\item 
+const int \hyperlink{unagi__server_8c_a964cb5d8e42b8e8d6075b23e01bdaf36}{max\+\_\+num\+\_\+len} = 20
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+unagi server メインファイル 
+
+\begin{DoxyAuthor}{Author}
+田浦 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Oct. 8, 2018 
+\end{DoxyDate}
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2}\label{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2}} 
+\index{unagi\+\_\+server.\+c@{unagi\+\_\+server.\+c}!request\+\_\+kind\+\_\+t@{request\+\_\+kind\+\_\+t}}
+\index{request\+\_\+kind\+\_\+t@{request\+\_\+kind\+\_\+t}!unagi\+\_\+server.\+c@{unagi\+\_\+server.\+c}}
+\subsubsection{\texorpdfstring{request\+\_\+kind\+\_\+t}{request\_kind\_t}}
+{\footnotesize\ttfamily enum \hyperlink{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2}{request\+\_\+kind\+\_\+t}}
+
+
+
+クライアントからのリクエストの種類 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{request\+\_\+kind\+\_\+put@{request\+\_\+kind\+\_\+put}!unagi\+\_\+server.\+c@{unagi\+\_\+server.\+c}}\index{unagi\+\_\+server.\+c@{unagi\+\_\+server.\+c}!request\+\_\+kind\+\_\+put@{request\+\_\+kind\+\_\+put}}}\mbox{\Hypertarget{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2a939edab734abb6b3618470014284c9bb}\label{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2a939edab734abb6b3618470014284c9bb}} 
+request\+\_\+kind\+\_\+put&put (ドキュメント追加) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{request\+\_\+kind\+\_\+get@{request\+\_\+kind\+\_\+get}!unagi\+\_\+server.\+c@{unagi\+\_\+server.\+c}}\index{unagi\+\_\+server.\+c@{unagi\+\_\+server.\+c}!request\+\_\+kind\+\_\+get@{request\+\_\+kind\+\_\+get}}}\mbox{\Hypertarget{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2a3b425dde6f4f1c9af3b7364789a7861a}\label{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2a3b425dde6f4f1c9af3b7364789a7861a}} 
+request\+\_\+kind\+\_\+get&get (文字列検索) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{request\+\_\+kind\+\_\+getc@{request\+\_\+kind\+\_\+getc}!unagi\+\_\+server.\+c@{unagi\+\_\+server.\+c}}\index{unagi\+\_\+server.\+c@{unagi\+\_\+server.\+c}!request\+\_\+kind\+\_\+getc@{request\+\_\+kind\+\_\+getc}}}\mbox{\Hypertarget{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2a561c4bcc9e55396b0f97b4689b858cce}\label{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2a561c4bcc9e55396b0f97b4689b858cce}} 
+request\+\_\+kind\+\_\+getc&getc (文字列出現数) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{request\+\_\+kind\+\_\+dump@{request\+\_\+kind\+\_\+dump}!unagi\+\_\+server.\+c@{unagi\+\_\+server.\+c}}\index{unagi\+\_\+server.\+c@{unagi\+\_\+server.\+c}!request\+\_\+kind\+\_\+dump@{request\+\_\+kind\+\_\+dump}}}\mbox{\Hypertarget{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2add50a1ff1f7fed7f2d79766a99661650}\label{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2add50a1ff1f7fed7f2d79766a99661650}} 
+request\+\_\+kind\+\_\+dump&dump (全ドキュメントダンプ) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{request\+\_\+kind\+\_\+dumpc@{request\+\_\+kind\+\_\+dumpc}!unagi\+\_\+server.\+c@{unagi\+\_\+server.\+c}}\index{unagi\+\_\+server.\+c@{unagi\+\_\+server.\+c}!request\+\_\+kind\+\_\+dumpc@{request\+\_\+kind\+\_\+dumpc}}}\mbox{\Hypertarget{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2a03dcc800e7750f6b6738b7e8cfbf175d}\label{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2a03dcc800e7750f6b6738b7e8cfbf175d}} 
+request\+\_\+kind\+\_\+dumpc&dumpc (全ドキュメント数) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{request\+\_\+kind\+\_\+discon@{request\+\_\+kind\+\_\+discon}!unagi\+\_\+server.\+c@{unagi\+\_\+server.\+c}}\index{unagi\+\_\+server.\+c@{unagi\+\_\+server.\+c}!request\+\_\+kind\+\_\+discon@{request\+\_\+kind\+\_\+discon}}}\mbox{\Hypertarget{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2afc515b19b1b933e6ba491cc96528bdae}\label{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2afc515b19b1b933e6ba491cc96528bdae}} 
+request\+\_\+kind\+\_\+discon&discon (接続終了) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{request\+\_\+kind\+\_\+quit@{request\+\_\+kind\+\_\+quit}!unagi\+\_\+server.\+c@{unagi\+\_\+server.\+c}}\index{unagi\+\_\+server.\+c@{unagi\+\_\+server.\+c}!request\+\_\+kind\+\_\+quit@{request\+\_\+kind\+\_\+quit}}}\mbox{\Hypertarget{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2a8d686e8fb6bb9044d4c36920e5c6f442}\label{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2a8d686e8fb6bb9044d4c36920e5c6f442}} 
+request\+\_\+kind\+\_\+quit&quit (サーバ終了) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{request\+\_\+kind\+\_\+invalid@{request\+\_\+kind\+\_\+invalid}!unagi\+\_\+server.\+c@{unagi\+\_\+server.\+c}}\index{unagi\+\_\+server.\+c@{unagi\+\_\+server.\+c}!request\+\_\+kind\+\_\+invalid@{request\+\_\+kind\+\_\+invalid}}}\mbox{\Hypertarget{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2a4d0a6943b5e744685646ad25c21e24f2}\label{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2a4d0a6943b5e744685646ad25c21e24f2}} 
+request\+\_\+kind\+\_\+invalid&無効なリクエスト \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{unagi__server_8c_a3c04138a5bfe5d72780bb7e82a18e627}\label{unagi__server_8c_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{unagi\+\_\+server.\+c@{unagi\+\_\+server.\+c}!main@{main}}
+\index{main@{main}!unagi\+\_\+server.\+c@{unagi\+\_\+server.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+メイン関数 
+
+コマンドラインを処理. サーバを立ち上げ. 停止(quit)命令を受け取るまで処理を 
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{unagi__server_8c_a212b47c04ff57543a47a8d70f841c9db}\label{unagi__server_8c_a212b47c04ff57543a47a8d70f841c9db}} 
+\index{unagi\+\_\+server.\+c@{unagi\+\_\+server.\+c}!max\+\_\+inst\+\_\+len@{max\+\_\+inst\+\_\+len}}
+\index{max\+\_\+inst\+\_\+len@{max\+\_\+inst\+\_\+len}!unagi\+\_\+server.\+c@{unagi\+\_\+server.\+c}}
+\subsubsection{\texorpdfstring{max\+\_\+inst\+\_\+len}{max\_inst\_len}}
+{\footnotesize\ttfamily const int max\+\_\+inst\+\_\+len = 20}
+
+命令(put, get, quit, ...)の最大長 \mbox{\Hypertarget{unagi__server_8c_a964cb5d8e42b8e8d6075b23e01bdaf36}\label{unagi__server_8c_a964cb5d8e42b8e8d6075b23e01bdaf36}} 
+\index{unagi\+\_\+server.\+c@{unagi\+\_\+server.\+c}!max\+\_\+num\+\_\+len@{max\+\_\+num\+\_\+len}}
+\index{max\+\_\+num\+\_\+len@{max\+\_\+num\+\_\+len}!unagi\+\_\+server.\+c@{unagi\+\_\+server.\+c}}
+\subsubsection{\texorpdfstring{max\+\_\+num\+\_\+len}{max\_num\_len}}
+{\footnotesize\ttfamily const int max\+\_\+num\+\_\+len = 20}
+
+数字の最大桁数 

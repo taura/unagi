@@ -1,0 +1,82 @@
+\hypertarget{structrequest__t}{}\section{request\+\_\+t Struct Reference}
+\label{structrequest__t}\index{request\+\_\+t@{request\+\_\+t}}
+
+
+クライアントからのリクエストを表すデータ構造  
+
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2}{request\+\_\+kind\+\_\+t} \hyperlink{structrequest__t_a5a7d278ddd3badff185070eea7ffdcf6}{kind}
+\item 
+\mbox{\Hypertarget{structrequest__t_a9b5a412828b2bbcd17f1dd0758705025}\label{structrequest__t_a9b5a412828b2bbcd17f1dd0758705025}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>struct \{\\
+\>\>char $\ast$ \hyperlink{structrequest__t_a29398274887826eaa815508fc159c4bb}{label}\\
+\>\>size\_t \hyperlink{structrequest__t_a33f664c7c9218860358eb989281fd83d}{label\_len}\\
+\>\>char $\ast$ \hyperlink{structrequest__t_aba523dc4fff06627bc840193fbafb949}{data}\\
+\>\>size\_t \hyperlink{structrequest__t_a8e71192dcf1ff66483f6b4ae308f1c07}{data\_len}\\
+\>\} {\bfseries put}\\
+\>struct \{\\
+\>\>char $\ast$ \hyperlink{structrequest__t_a1edf2a25f2884e581bd011c950ee6603}{query}\\
+\>\>size\_t \hyperlink{structrequest__t_ae89af9417b7e6874716f2fe66d7112fe}{query\_len}\\
+\>\} {\bfseries get}\\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+クライアントからのリクエストを表すデータ構造 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structrequest__t_aba523dc4fff06627bc840193fbafb949}\label{structrequest__t_aba523dc4fff06627bc840193fbafb949}} 
+\index{request\+\_\+t@{request\+\_\+t}!data@{data}}
+\index{data@{data}!request\+\_\+t@{request\+\_\+t}}
+\subsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily char$\ast$ request\+\_\+t\+::data}
+
+putされるドキュメントの中身 \mbox{\Hypertarget{structrequest__t_a8e71192dcf1ff66483f6b4ae308f1c07}\label{structrequest__t_a8e71192dcf1ff66483f6b4ae308f1c07}} 
+\index{request\+\_\+t@{request\+\_\+t}!data\+\_\+len@{data\+\_\+len}}
+\index{data\+\_\+len@{data\+\_\+len}!request\+\_\+t@{request\+\_\+t}}
+\subsubsection{\texorpdfstring{data\+\_\+len}{data\_len}}
+{\footnotesize\ttfamily size\+\_\+t request\+\_\+t\+::data\+\_\+len}
+
+dataの長さ(バイト数) \mbox{\Hypertarget{structrequest__t_a5a7d278ddd3badff185070eea7ffdcf6}\label{structrequest__t_a5a7d278ddd3badff185070eea7ffdcf6}} 
+\index{request\+\_\+t@{request\+\_\+t}!kind@{kind}}
+\index{kind@{kind}!request\+\_\+t@{request\+\_\+t}}
+\subsubsection{\texorpdfstring{kind}{kind}}
+{\footnotesize\ttfamily \hyperlink{unagi__server_8c_a30a7f6ee9120da0c95e8a1847b35a7a2}{request\+\_\+kind\+\_\+t} request\+\_\+t\+::kind}
+
+種類(put, get, quit, ...) \mbox{\Hypertarget{structrequest__t_a29398274887826eaa815508fc159c4bb}\label{structrequest__t_a29398274887826eaa815508fc159c4bb}} 
+\index{request\+\_\+t@{request\+\_\+t}!label@{label}}
+\index{label@{label}!request\+\_\+t@{request\+\_\+t}}
+\subsubsection{\texorpdfstring{label}{label}}
+{\footnotesize\ttfamily char$\ast$ request\+\_\+t\+::label}
+
+putされるドキュメントのラベル(タイトル, ファイル名など任意の文字列 etc.) \mbox{\Hypertarget{structrequest__t_a33f664c7c9218860358eb989281fd83d}\label{structrequest__t_a33f664c7c9218860358eb989281fd83d}} 
+\index{request\+\_\+t@{request\+\_\+t}!label\+\_\+len@{label\+\_\+len}}
+\index{label\+\_\+len@{label\+\_\+len}!request\+\_\+t@{request\+\_\+t}}
+\subsubsection{\texorpdfstring{label\+\_\+len}{label\_len}}
+{\footnotesize\ttfamily size\+\_\+t request\+\_\+t\+::label\+\_\+len}
+
+labelの長さ(バイト数) \mbox{\Hypertarget{structrequest__t_a1edf2a25f2884e581bd011c950ee6603}\label{structrequest__t_a1edf2a25f2884e581bd011c950ee6603}} 
+\index{request\+\_\+t@{request\+\_\+t}!query@{query}}
+\index{query@{query}!request\+\_\+t@{request\+\_\+t}}
+\subsubsection{\texorpdfstring{query}{query}}
+{\footnotesize\ttfamily char$\ast$ request\+\_\+t\+::query}
+
+検索文字列 \mbox{\Hypertarget{structrequest__t_ae89af9417b7e6874716f2fe66d7112fe}\label{structrequest__t_ae89af9417b7e6874716f2fe66d7112fe}} 
+\index{request\+\_\+t@{request\+\_\+t}!query\+\_\+len@{query\+\_\+len}}
+\index{query\+\_\+len@{query\+\_\+len}!request\+\_\+t@{request\+\_\+t}}
+\subsubsection{\texorpdfstring{query\+\_\+len}{query\_len}}
+{\footnotesize\ttfamily size\+\_\+t request\+\_\+t\+::query\+\_\+len}
+
+queryの長さ(バイト数) 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/tau/public\+\_\+html/lecture/operating\+\_\+systems/gen/unagi/tau/unagi/src/server/\hyperlink{unagi__server_8c}{unagi\+\_\+server.\+c}\end{DoxyCompactItemize}

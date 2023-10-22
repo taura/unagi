@@ -1,0 +1,157 @@
+\hypertarget{unagi__utility_8h}{}\section{/home/tau/public\+\_\+html/lecture/operating\+\_\+systems/gen/unagi/tau/unagi/src/server/unagi\+\_\+utility.h File Reference}
+\label{unagi__utility_8h}\index{/home/tau/public\+\_\+html/lecture/operating\+\_\+systems/gen/unagi/tau/unagi/src/server/unagi\+\_\+utility.\+h@{/home/tau/public\+\_\+html/lecture/operating\+\_\+systems/gen/unagi/tau/unagi/src/server/unagi\+\_\+utility.\+h}}
+
+
+共通に使うユーティリティ(ヘッダファイル)  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for unagi\+\_\+utility.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{unagi__utility_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{unagi__utility_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{unagi__utility_8h_a05e8db6b57ab3498eb370a958c2ec6cc}{api\+\_\+err}(msg)~\hyperlink{unagi__utility_8h_a6f52d6a6178c8fbb9e4393d00911c6b5}{api\+\_\+err\+\_\+}(msg, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em システムコールや\+C標準関数のエラーメッセージをファイル番号\+:行番号とともに表示 \end{DoxyCompactList}\item 
+\#define \hyperlink{unagi__utility_8h_a549b1d478b90fcd78b3aa4d9e9fd9b4f}{internal\+\_\+err}(msg)~\hyperlink{unagi__utility_8h_aa728038408058b42e2a43e01722cbd49}{internal\+\_\+err\+\_\+}(msg, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em 内部的なエラーを表示 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{unagi__utility_8h_a6f52d6a6178c8fbb9e4393d00911c6b5}{api\+\_\+err\+\_\+} (const char $\ast$msg, const char $\ast$\+\_\+\+\_\+file\+\_\+\+\_\+, int \+\_\+\+\_\+line\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em マクロ api\+\_\+err を参照 \end{DoxyCompactList}\item 
+void \hyperlink{unagi__utility_8h_aa728038408058b42e2a43e01722cbd49}{internal\+\_\+err\+\_\+} (const char $\ast$msg, const char $\ast$\+\_\+\+\_\+file\+\_\+\+\_\+, int \+\_\+\+\_\+line\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em マクロ internal\+\_\+err を参照 \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{unagi__utility_8h_a7f6cb815cae2536139cd0315633f713b}{malloc\+\_\+or\+\_\+err} (size\+\_\+t sz)
+\begin{DoxyCompactList}\small\item\em mallocし, 失敗したらエラーを表示 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{unagi__utility_8h_ad7a4504082a1eeca5b70e47273d3af6b}\label{unagi__utility_8h_ad7a4504082a1eeca5b70e47273d3af6b}} 
+void \hyperlink{unagi__utility_8h_ad7a4504082a1eeca5b70e47273d3af6b}{my\+\_\+free} (void $\ast$a)
+\begin{DoxyCompactList}\small\item\em freeの代わりにこれを呼ぶ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+共通に使うユーティリティ(ヘッダファイル) 
+
+\begin{DoxyAuthor}{Author}
+田浦 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Oct. 8, 2018 
+\end{DoxyDate}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{unagi__utility_8h_a05e8db6b57ab3498eb370a958c2ec6cc}\label{unagi__utility_8h_a05e8db6b57ab3498eb370a958c2ec6cc}} 
+\index{unagi\+\_\+utility.\+h@{unagi\+\_\+utility.\+h}!api\+\_\+err@{api\+\_\+err}}
+\index{api\+\_\+err@{api\+\_\+err}!unagi\+\_\+utility.\+h@{unagi\+\_\+utility.\+h}}
+\subsubsection{\texorpdfstring{api\+\_\+err}{api\_err}}
+{\footnotesize\ttfamily \#define api\+\_\+err(\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})~\hyperlink{unagi__utility_8h_a6f52d6a6178c8fbb9e4393d00911c6b5}{api\+\_\+err\+\_\+}(msg, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+)}
+
+
+
+システムコールや\+C標準関数のエラーメッセージをファイル番号\+:行番号とともに表示 
+
+
+\begin{DoxyParams}{Parameters}
+{\em (msg)} & 表示したいメッセージ \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{unagi__utility_8h_a6f52d6a6178c8fbb9e4393d00911c6b5}{api\+\_\+err\+\_\+}
+\end{DoxySeeAlso}
+システムコール(send, recv, ...)や\+Cの標準関数(malloc, ...)がエラーになった際, 直後にこの関数を呼ぶと原因が表示される. 使用例\+:
+
+char $\ast$ p = malloc(...);
+
+if(!p) api\+\_\+err(\char`\"{}malloc\char`\"{}); \mbox{\Hypertarget{unagi__utility_8h_a549b1d478b90fcd78b3aa4d9e9fd9b4f}\label{unagi__utility_8h_a549b1d478b90fcd78b3aa4d9e9fd9b4f}} 
+\index{unagi\+\_\+utility.\+h@{unagi\+\_\+utility.\+h}!internal\+\_\+err@{internal\+\_\+err}}
+\index{internal\+\_\+err@{internal\+\_\+err}!unagi\+\_\+utility.\+h@{unagi\+\_\+utility.\+h}}
+\subsubsection{\texorpdfstring{internal\+\_\+err}{internal\_err}}
+{\footnotesize\ttfamily \#define internal\+\_\+err(\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})~\hyperlink{unagi__utility_8h_aa728038408058b42e2a43e01722cbd49}{internal\+\_\+err\+\_\+}(msg, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+)}
+
+
+
+内部的なエラーを表示 
+
+
+\begin{DoxyParams}{Parameters}
+{\em (msg)} & メッセージ \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{unagi__utility_8h_aa728038408058b42e2a43e01722cbd49}{internal\+\_\+err\+\_\+}
+\end{DoxySeeAlso}
+内部的なエラーが発生した際にエラーメッセージ, ファイル名, 行番号を表示し, 終了する 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{unagi__utility_8h_a6f52d6a6178c8fbb9e4393d00911c6b5}\label{unagi__utility_8h_a6f52d6a6178c8fbb9e4393d00911c6b5}} 
+\index{unagi\+\_\+utility.\+h@{unagi\+\_\+utility.\+h}!api\+\_\+err\+\_\+@{api\+\_\+err\+\_\+}}
+\index{api\+\_\+err\+\_\+@{api\+\_\+err\+\_\+}!unagi\+\_\+utility.\+h@{unagi\+\_\+utility.\+h}}
+\subsubsection{\texorpdfstring{api\+\_\+err\+\_\+()}{api\_err\_()}}
+{\footnotesize\ttfamily void api\+\_\+err\+\_\+ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{msg,  }\item[{const char $\ast$}]{\+\_\+\+\_\+file\+\_\+\+\_\+,  }\item[{int}]{\+\_\+\+\_\+line\+\_\+\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+マクロ api\+\_\+err を参照 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{unagi__utility_8h_a05e8db6b57ab3498eb370a958c2ec6cc}{api\+\_\+err}
+\end{DoxySeeAlso}
+この関数を直接呼ぶことはない. マクロ api\+\_\+err を参照 
+\begin{DoxyParams}{Parameters}
+{\em msg} & 表示したいメッセージ \\
+\hline
+{\em \+\_\+\+\_\+file\+\_\+\+\_\+} & ファイル名 \\
+\hline
+{\em \+\_\+\+\_\+line\+\_\+\+\_\+} & 行番号 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{unagi__utility_8h_aa728038408058b42e2a43e01722cbd49}\label{unagi__utility_8h_aa728038408058b42e2a43e01722cbd49}} 
+\index{unagi\+\_\+utility.\+h@{unagi\+\_\+utility.\+h}!internal\+\_\+err\+\_\+@{internal\+\_\+err\+\_\+}}
+\index{internal\+\_\+err\+\_\+@{internal\+\_\+err\+\_\+}!unagi\+\_\+utility.\+h@{unagi\+\_\+utility.\+h}}
+\subsubsection{\texorpdfstring{internal\+\_\+err\+\_\+()}{internal\_err\_()}}
+{\footnotesize\ttfamily void internal\+\_\+err\+\_\+ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{msg,  }\item[{const char $\ast$}]{\+\_\+\+\_\+file\+\_\+\+\_\+,  }\item[{int}]{\+\_\+\+\_\+line\+\_\+\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+マクロ internal\+\_\+err を参照 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{unagi__utility_8h_a549b1d478b90fcd78b3aa4d9e9fd9b4f}{internal\+\_\+err}
+\end{DoxySeeAlso}
+この関数を直接呼ぶことはない. マクロ internal\+\_\+err を参照 
+\begin{DoxyParams}{Parameters}
+{\em msg} & 表示したいメッセージ \\
+\hline
+{\em \+\_\+\+\_\+file\+\_\+\+\_\+} & ファイル名 \\
+\hline
+{\em \+\_\+\+\_\+line\+\_\+\+\_\+} & 行番号 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{unagi__utility_8h_a7f6cb815cae2536139cd0315633f713b}\label{unagi__utility_8h_a7f6cb815cae2536139cd0315633f713b}} 
+\index{unagi\+\_\+utility.\+h@{unagi\+\_\+utility.\+h}!malloc\+\_\+or\+\_\+err@{malloc\+\_\+or\+\_\+err}}
+\index{malloc\+\_\+or\+\_\+err@{malloc\+\_\+or\+\_\+err}!unagi\+\_\+utility.\+h@{unagi\+\_\+utility.\+h}}
+\subsubsection{\texorpdfstring{malloc\+\_\+or\+\_\+err()}{malloc\_or\_err()}}
+{\footnotesize\ttfamily void$\ast$ malloc\+\_\+or\+\_\+err (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{sz }\end{DoxyParamCaption})}
+
+
+
+mallocし, 失敗したらエラーを表示 
+
+szバイトをmallocで割り当てる. 失敗したらエラーを表示(して\+N\+U\+L\+Lを返す. 終了はしない) 
+\begin{DoxyParams}{Parameters}
+{\em sz} & 割当量(バイト数) \\
+\hline
+\end{DoxyParams}

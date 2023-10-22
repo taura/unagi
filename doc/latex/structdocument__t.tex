@@ -1,0 +1,64 @@
+\hypertarget{structdocument__t}{}\section{document\+\_\+t Struct Reference}
+\label{structdocument__t}\index{document\+\_\+t@{document\+\_\+t}}
+
+
+1つのドキュメントを表す構造体(putされる単位)  
+
+
+
+
+{\ttfamily \#include $<$document\+\_\+repository.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{structdocument__t_adc78927f2a7a1579e3fd1c965abba435}{label}
+\item 
+size\+\_\+t \hyperlink{structdocument__t_aa941cb26dde0de815f368e4503a689a3}{label\+\_\+len}
+\item 
+char $\ast$ \hyperlink{structdocument__t_a35382946989679b4166825f1b4e2d92b}{data}
+\item 
+size\+\_\+t \hyperlink{structdocument__t_a39aff76b482302a6872c04a1d0fba28f}{data\+\_\+len}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+1つのドキュメントを表す構造体(putされる単位) 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{structdocument__array__t}{document\+\_\+array\+\_\+t}
+\end{DoxySeeAlso}
+ドキュメントは任意のラベル(典型的にはタイトル, ファイル名など)文字列と, そのドキュメントの中身で表される. 使用例\+:
+
+char $\ast$ label = \char`\"{}野球\char`\"{}; char $\ast$ data = \char`\"{}野球はアメリカの国民的スポーツ\char`\"{}, \hyperlink{structdocument__t}{document\+\_\+t} doc = \{ label, strlen(label), data, strlen(data) \}; 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structdocument__t_a35382946989679b4166825f1b4e2d92b}\label{structdocument__t_a35382946989679b4166825f1b4e2d92b}} 
+\index{document\+\_\+t@{document\+\_\+t}!data@{data}}
+\index{data@{data}!document\+\_\+t@{document\+\_\+t}}
+\subsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily char$\ast$ document\+\_\+t\+::data}
+
+データ(ドキュメントのテキスト) \mbox{\Hypertarget{structdocument__t_a39aff76b482302a6872c04a1d0fba28f}\label{structdocument__t_a39aff76b482302a6872c04a1d0fba28f}} 
+\index{document\+\_\+t@{document\+\_\+t}!data\+\_\+len@{data\+\_\+len}}
+\index{data\+\_\+len@{data\+\_\+len}!document\+\_\+t@{document\+\_\+t}}
+\subsubsection{\texorpdfstring{data\+\_\+len}{data\_len}}
+{\footnotesize\ttfamily size\+\_\+t document\+\_\+t\+::data\+\_\+len}
+
+データの長さ(バイト数) \mbox{\Hypertarget{structdocument__t_adc78927f2a7a1579e3fd1c965abba435}\label{structdocument__t_adc78927f2a7a1579e3fd1c965abba435}} 
+\index{document\+\_\+t@{document\+\_\+t}!label@{label}}
+\index{label@{label}!document\+\_\+t@{document\+\_\+t}}
+\subsubsection{\texorpdfstring{label}{label}}
+{\footnotesize\ttfamily char$\ast$ document\+\_\+t\+::label}
+
+ラベル \mbox{\Hypertarget{structdocument__t_aa941cb26dde0de815f368e4503a689a3}\label{structdocument__t_aa941cb26dde0de815f368e4503a689a3}} 
+\index{document\+\_\+t@{document\+\_\+t}!label\+\_\+len@{label\+\_\+len}}
+\index{label\+\_\+len@{label\+\_\+len}!document\+\_\+t@{document\+\_\+t}}
+\subsubsection{\texorpdfstring{label\+\_\+len}{label\_len}}
+{\footnotesize\ttfamily size\+\_\+t document\+\_\+t\+::label\+\_\+len}
+
+ラベルの長さ(バイト数) 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/tau/public\+\_\+html/lecture/operating\+\_\+systems/gen/unagi/tau/unagi/src/server/\hyperlink{document__repository_8h}{document\+\_\+repository.\+h}\end{DoxyCompactItemize}

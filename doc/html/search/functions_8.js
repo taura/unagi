@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['send_5fbytes',['send_bytes',['../unagi__server_8c.html#afad09b51eb8db4364e5e7a78c53a53d7',1,'unagi_server.c']]],
+  ['send_5fng',['send_ng',['../unagi__server_8c.html#a11199a71b5aba824e716846b12de8176',1,'unagi_server.c']]],
+  ['send_5fnum',['send_num',['../unagi__server_8c.html#adebec26600d4a69be9e219310d6faed7',1,'unagi_server.c']]],
+  ['send_5fok',['send_ok',['../unagi__server_8c.html#a26a5cb537795296c1bd93ad1bc84f409',1,'unagi_server.c']]],
+  ['send_5fok_5fand_5fnum',['send_ok_and_num',['../unagi__server_8c.html#a13d272bd5ef2834970077e2a4789cd78',1,'unagi_server.c']]],
+  ['server_5faccept_5fconnection',['server_accept_connection',['../unagi__server_8c.html#a6e57c7fae57f9c025568ee40b13a3de9',1,'unagi_server.c']]],
+  ['server_5fprocess_5fconnection',['server_process_connection',['../unagi__server_8c.html#a1ac529f78fb51c9552e44ff9244a5843',1,'unagi_server.c']]],
+  ['server_5frecv_5fmessage',['server_recv_message',['../unagi__server_8c.html#af29b7235277c5fd7a0e0ef5096cf6a4c',1,'unagi_server.c']]],
+  ['server_5frecv_5fmessage_5fdiscon',['server_recv_message_discon',['../unagi__server_8c.html#afcc1a38ace2e27c37444c71030dc0a8d',1,'unagi_server.c']]],
+  ['server_5frecv_5fmessage_5fdump',['server_recv_message_dump',['../unagi__server_8c.html#ad36f0beefb8354cdef6a36c5b18b652a',1,'unagi_server.c']]],
+  ['server_5frecv_5fmessage_5fdumpc',['server_recv_message_dumpc',['../unagi__server_8c.html#aa3f770ca25670d77e6c8507e9bdbec7f',1,'unagi_server.c']]],
+  ['server_5frecv_5fmessage_5fget',['server_recv_message_get',['../unagi__server_8c.html#a68029d2a4432b19d686d18fae0917330',1,'unagi_server.c']]],
+  ['server_5frecv_5fmessage_5fgetc',['server_recv_message_getc',['../unagi__server_8c.html#a6d2f0d8db978991b9470d70612ca90c3',1,'unagi_server.c']]],
+  ['server_5frecv_5fmessage_5fput',['server_recv_message_put',['../unagi__server_8c.html#a0784a366b4c494d0e9875850c29981db',1,'unagi_server.c']]],
+  ['server_5frecv_5fmessage_5fquit',['server_recv_message_quit',['../unagi__server_8c.html#a7c87b91b9927bc82fa270a5591c042e9',1,'unagi_server.c']]],
+  ['start_5fserver',['start_server',['../unagi__server_8c.html#aeebf12481e361f6702b16a3ad6077fe0',1,'unagi_server.c']]],
+  ['stop_5fserver',['stop_server',['../unagi__server_8c.html#ac59593e0505d2b7e0b78787fe9062601',1,'unagi_server.c']]]
+];

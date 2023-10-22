@@ -1,0 +1,95 @@
+\hypertarget{structquery__result__t}{}\section{query\+\_\+result\+\_\+t Struct Reference}
+\label{structquery__result__t}\index{query\+\_\+result\+\_\+t@{query\+\_\+result\+\_\+t}}
+
+
+検索結果(出現位置の集合, ストリーム)を表すデータ構造  
+
+
+
+
+{\ttfamily \#include $<$document\+\_\+repository.\+h$>$}
+
+
+
+Collaboration diagram for query\+\_\+result\+\_\+t\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{structquery__result__t__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structdocument__array__t}{document\+\_\+array\+\_\+t} $\ast$ \hyperlink{structquery__result__t_a4b3bddcf5a7c3a3f30ef0ae4c2fe3935}{da}
+\item 
+char $\ast$ \hyperlink{structquery__result__t_aa5f0530418fd600f6fb0af7ba32028bc}{query}
+\item 
+size\+\_\+t \hyperlink{structquery__result__t_a2b862804a4bde653fa85acdf84ae0403}{query\+\_\+len}
+\item 
+size\+\_\+t \hyperlink{structquery__result__t_a73621c1e37c31f8b11ee795c1ffaf808}{i}
+\item 
+char $\ast$ \hyperlink{structquery__result__t_ad44a1b8a87775c59260626095bb42945}{p}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+検索結果(出現位置の集合, ストリーム)を表すデータ構造 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{document__repository_8h_a8f61dbccc6befcc6affb3f6461bff262}{document\+\_\+repo\+\_\+query} 
+
+\hyperlink{document__repository_8h_a7831dbf9173888563e4f19519d700472}{query\+\_\+result\+\_\+next}
+\end{DoxySeeAlso}
+一般に検索結果は, 検索文字列の出現全てであり, 大量になりうるため, 検索結果は, 出現を一つずつ返すことができる データ構造とする. 具体的には, query\+\_\+result\+\_\+next という関数で, 次の出現を返すようなデータ構造とする. 従って以下のように使う.
+
+\hyperlink{structquery__result__t}{query\+\_\+result\+\_\+t} qr = document\+\_\+repo\+\_\+query(repo, query, query\+\_\+len);
+
+while (1) \{
+
+\hyperlink{structoccurrence__t}{occurrence\+\_\+t} o = query\+\_\+result\+\_\+next(\&qr);
+
+if (!o.doc.\+label) break;
+
+... o.\+doc.\+data\mbox{[}o.\+offset\mbox{]} から query が出現する ...
+
+\}
+
+この構造体の中身は以降, 検索のアルゴリズムを変える際に大きく変わる. 現状は, 全ドキュメントを順にスキャンしていくだけのアルゴリズム 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structquery__result__t_a4b3bddcf5a7c3a3f30ef0ae4c2fe3935}\label{structquery__result__t_a4b3bddcf5a7c3a3f30ef0ae4c2fe3935}} 
+\index{query\+\_\+result\+\_\+t@{query\+\_\+result\+\_\+t}!da@{da}}
+\index{da@{da}!query\+\_\+result\+\_\+t@{query\+\_\+result\+\_\+t}}
+\subsubsection{\texorpdfstring{da}{da}}
+{\footnotesize\ttfamily \hyperlink{structdocument__array__t}{document\+\_\+array\+\_\+t}$\ast$ query\+\_\+result\+\_\+t\+::da}
+
+検索されたドキュメント配列 \mbox{\Hypertarget{structquery__result__t_a73621c1e37c31f8b11ee795c1ffaf808}\label{structquery__result__t_a73621c1e37c31f8b11ee795c1ffaf808}} 
+\index{query\+\_\+result\+\_\+t@{query\+\_\+result\+\_\+t}!i@{i}}
+\index{i@{i}!query\+\_\+result\+\_\+t@{query\+\_\+result\+\_\+t}}
+\subsubsection{\texorpdfstring{i}{i}}
+{\footnotesize\ttfamily size\+\_\+t query\+\_\+result\+\_\+t\+::i}
+
+次に検索するドキュメントの番号(配列の添字) \mbox{\Hypertarget{structquery__result__t_ad44a1b8a87775c59260626095bb42945}\label{structquery__result__t_ad44a1b8a87775c59260626095bb42945}} 
+\index{query\+\_\+result\+\_\+t@{query\+\_\+result\+\_\+t}!p@{p}}
+\index{p@{p}!query\+\_\+result\+\_\+t@{query\+\_\+result\+\_\+t}}
+\subsubsection{\texorpdfstring{p}{p}}
+{\footnotesize\ttfamily char$\ast$ query\+\_\+result\+\_\+t\+::p}
+
+次に検索を開始する位置 \mbox{\Hypertarget{structquery__result__t_aa5f0530418fd600f6fb0af7ba32028bc}\label{structquery__result__t_aa5f0530418fd600f6fb0af7ba32028bc}} 
+\index{query\+\_\+result\+\_\+t@{query\+\_\+result\+\_\+t}!query@{query}}
+\index{query@{query}!query\+\_\+result\+\_\+t@{query\+\_\+result\+\_\+t}}
+\subsubsection{\texorpdfstring{query}{query}}
+{\footnotesize\ttfamily char$\ast$ query\+\_\+result\+\_\+t\+::query}
+
+検索文字列 \mbox{\Hypertarget{structquery__result__t_a2b862804a4bde653fa85acdf84ae0403}\label{structquery__result__t_a2b862804a4bde653fa85acdf84ae0403}} 
+\index{query\+\_\+result\+\_\+t@{query\+\_\+result\+\_\+t}!query\+\_\+len@{query\+\_\+len}}
+\index{query\+\_\+len@{query\+\_\+len}!query\+\_\+result\+\_\+t@{query\+\_\+result\+\_\+t}}
+\subsubsection{\texorpdfstring{query\+\_\+len}{query\_len}}
+{\footnotesize\ttfamily size\+\_\+t query\+\_\+result\+\_\+t\+::query\+\_\+len}
+
+queryの長さ(バイト数) 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/tau/public\+\_\+html/lecture/operating\+\_\+systems/gen/unagi/tau/unagi/src/server/\hyperlink{document__repository_8h}{document\+\_\+repository.\+h}\end{DoxyCompactItemize}

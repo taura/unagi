@@ -1,0 +1,6 @@
+<map id="server_t" name="server_t">
+<area shape="rect" id="node2" href="$structdocument__repo__t.html" title="ドキュメントのレポジトリ " alt="" coords="7,184,130,211"/>
+<area shape="rect" id="node3" href="$structdocument__array__t.html" title="ドキュメントの可変長配列 " alt="" coords="5,95,132,121"/>
+<area shape="rect" id="node4" href="$structdocument__t.html" title="1つのドキュメントを表す構造体(putされる単位) " alt="" coords="23,5,114,32"/>
+<area shape="rect" id="node5" href="$structcmdline__options__t.html" title="サーバのコマンドラインオプションを表すデータ構造 " alt="" coords="155,184,281,211"/>
+</map>

@@ -1,0 +1,69 @@
+\hypertarget{structdump__result__t}{}\section{dump\+\_\+result\+\_\+t Struct Reference}
+\label{structdump__result__t}\index{dump\+\_\+result\+\_\+t@{dump\+\_\+result\+\_\+t}}
+
+
+全ドキュメントのダンプを表すデータ構造  
+
+
+
+
+{\ttfamily \#include $<$document\+\_\+repository.\+h$>$}
+
+
+
+Collaboration diagram for dump\+\_\+result\+\_\+t\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{structdump__result__t__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structdocument__array__t}{document\+\_\+array\+\_\+t} $\ast$ \hyperlink{structdump__result__t_a8bec8965013def292a9ead629d8939a5}{da}
+\item 
+size\+\_\+t \hyperlink{structdump__result__t_ab5747e1016ae99e9dd3aaf13099572c7}{i}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+全ドキュメントのダンプを表すデータ構造 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{document__repository_8h_a668ef0ea9ec3a0ca0bcb98b2406eb477}{document\+\_\+repo\+\_\+dump} 
+
+\hyperlink{document__repository_8h_a2db0fd4b412e33d8bf3549feb98b22fb}{dump\+\_\+result\+\_\+next}
+\end{DoxySeeAlso}
+一般に全ドキュメントは大量になりうるため, ドキュメントダンプの結果は, ドキュメントを一つずつ返すことができる データ構造とする. 具体的には, dump\+\_\+result\+\_\+next という関数で, 次のドキュメントを返すようなデータ構造とする. 従って以下のように使う.
+
+\hyperlink{structdump__result__t}{dump\+\_\+result\+\_\+t} qr = document\+\_\+repo\+\_\+dump(repo);
+
+while (1) \{
+
+\hyperlink{structdocument__t}{document\+\_\+t} doc = dump\+\_\+result\+\_\+next(\&qr);
+
+if (!doc.label) break;
+
+... doc.\+data ...
+
+\} 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structdump__result__t_a8bec8965013def292a9ead629d8939a5}\label{structdump__result__t_a8bec8965013def292a9ead629d8939a5}} 
+\index{dump\+\_\+result\+\_\+t@{dump\+\_\+result\+\_\+t}!da@{da}}
+\index{da@{da}!dump\+\_\+result\+\_\+t@{dump\+\_\+result\+\_\+t}}
+\subsubsection{\texorpdfstring{da}{da}}
+{\footnotesize\ttfamily \hyperlink{structdocument__array__t}{document\+\_\+array\+\_\+t}$\ast$ dump\+\_\+result\+\_\+t\+::da}
+
+全文書の配列 \mbox{\Hypertarget{structdump__result__t_ab5747e1016ae99e9dd3aaf13099572c7}\label{structdump__result__t_ab5747e1016ae99e9dd3aaf13099572c7}} 
+\index{dump\+\_\+result\+\_\+t@{dump\+\_\+result\+\_\+t}!i@{i}}
+\index{i@{i}!dump\+\_\+result\+\_\+t@{dump\+\_\+result\+\_\+t}}
+\subsubsection{\texorpdfstring{i}{i}}
+{\footnotesize\ttfamily size\+\_\+t dump\+\_\+result\+\_\+t\+::i}
+
+カーソル(次に返すドキュメント) 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/tau/public\+\_\+html/lecture/operating\+\_\+systems/gen/unagi/tau/unagi/src/server/\hyperlink{document__repository_8h}{document\+\_\+repository.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,222 @@
+\hypertarget{document__repository_8c}{}\section{/home/tau/public\+\_\+html/lecture/operating\+\_\+systems/gen/unagi/tau/unagi/src/server/document\+\_\+repository.c File Reference}
+\label{document__repository_8c}\index{/home/tau/public\+\_\+html/lecture/operating\+\_\+systems/gen/unagi/tau/unagi/src/server/document\+\_\+repository.\+c@{/home/tau/public\+\_\+html/lecture/operating\+\_\+systems/gen/unagi/tau/unagi/src/server/document\+\_\+repository.\+c}}
+
+
+ドキュメントを登録, 検索するレポジトリ  
+
+
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}unagi\+\_\+utility.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}document\+\_\+repository.\+h\char`\"{}}\newline
+Include dependency graph for document\+\_\+repository.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{document__repository_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{document__repository_8c_ad73236d39e69cbae2e618682cb2faa4e}{document\+\_\+repo\+\_\+init} (\hyperlink{structdocument__repo__t}{document\+\_\+repo\+\_\+t} $\ast$repo)
+\begin{DoxyCompactList}\small\item\em ドキュメントレポジトリ(document\+\_\+repo\+\_\+t)の初期化(空にする) \end{DoxyCompactList}\item 
+void \hyperlink{document__repository_8c_a3e498b4e62c3223775c173a3b299f412}{document\+\_\+repo\+\_\+destroy} (\hyperlink{structdocument__repo__t}{document\+\_\+repo\+\_\+t} $\ast$repo)
+\begin{DoxyCompactList}\small\item\em ドキュメントレポジトリ(document\+\_\+repo\+\_\+t)を破壊する. メモリを開放する \end{DoxyCompactList}\item 
+ssize\+\_\+t \hyperlink{document__repository_8c_aa6eebf0d0d4ec7f8d0a79dc7f061502b}{document\+\_\+repo\+\_\+add} (\hyperlink{structdocument__repo__t}{document\+\_\+repo\+\_\+t} $\ast$repo, \hyperlink{structdocument__t}{document\+\_\+t} d)
+\begin{DoxyCompactList}\small\item\em ドキュメントレポジトリ(document\+\_\+repo\+\_\+t)にドキュメントを追加する \end{DoxyCompactList}\item 
+\hyperlink{structquery__result__t}{query\+\_\+result\+\_\+t} \hyperlink{document__repository_8c_a8f61dbccc6befcc6affb3f6461bff262}{document\+\_\+repo\+\_\+query} (\hyperlink{structdocument__repo__t}{document\+\_\+repo\+\_\+t} $\ast$repo, char $\ast$query, size\+\_\+t query\+\_\+len)
+\begin{DoxyCompactList}\small\item\em ドキュメントレポジトリから指定文字列(query)を検索. \end{DoxyCompactList}\item 
+\hyperlink{structoccurrence__t}{occurrence\+\_\+t} \hyperlink{document__repository_8c_a7831dbf9173888563e4f19519d700472}{query\+\_\+result\+\_\+next} (\hyperlink{structquery__result__t}{query\+\_\+result\+\_\+t} $\ast$qr)
+\begin{DoxyCompactList}\small\item\em document\+\_\+repo\+\_\+query で得られた検索結果から, 次の出現位置を得る \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{document__repository_8c_a81fe0bb9c8482bbaa25b277dbf1a22ad}{document\+\_\+repo\+\_\+queryc} (\hyperlink{structdocument__repo__t}{document\+\_\+repo\+\_\+t} $\ast$repo, char $\ast$query, size\+\_\+t query\+\_\+len)
+\begin{DoxyCompactList}\small\item\em ドキュメントレポジトリから指定文字列(query)を検索しその出現回数 (のみ)を返す \end{DoxyCompactList}\item 
+\hyperlink{structdump__result__t}{dump\+\_\+result\+\_\+t} \hyperlink{document__repository_8c_a668ef0ea9ec3a0ca0bcb98b2406eb477}{document\+\_\+repo\+\_\+dump} (\hyperlink{structdocument__repo__t}{document\+\_\+repo\+\_\+t} $\ast$repo)
+\begin{DoxyCompactList}\small\item\em 全ドキュメントのダンプを表すデータ構造 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{document__repository_8c_affebc850b20de4382fff4a039f59c5a7}\label{document__repository_8c_affebc850b20de4382fff4a039f59c5a7}} 
+size\+\_\+t \hyperlink{document__repository_8c_affebc850b20de4382fff4a039f59c5a7}{document\+\_\+repo\+\_\+n\+\_\+docs} (\hyperlink{structdocument__repo__t}{document\+\_\+repo\+\_\+t} $\ast$repo)
+\begin{DoxyCompactList}\small\item\em 全ドキュメント数を取得する. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{document__repository_8c_a2db0fd4b412e33d8bf3549feb98b22fb}\label{document__repository_8c_a2db0fd4b412e33d8bf3549feb98b22fb}} 
+\hyperlink{structdocument__t}{document\+\_\+t} \hyperlink{document__repository_8c_a2db0fd4b412e33d8bf3549feb98b22fb}{dump\+\_\+result\+\_\+next} (\hyperlink{structdump__result__t}{dump\+\_\+result\+\_\+t} $\ast$dr)
+\begin{DoxyCompactList}\small\item\em document\+\_\+repo\+\_\+dump が返した \hyperlink{structdump__result__t}{dump\+\_\+result\+\_\+t} から, 次のドキュメントを返す. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+ドキュメントを登録, 検索するレポジトリ 
+
+\begin{DoxyAuthor}{Author}
+田浦 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Oct. 8, 2018 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{document__repository_8c_aa6eebf0d0d4ec7f8d0a79dc7f061502b}\label{document__repository_8c_aa6eebf0d0d4ec7f8d0a79dc7f061502b}} 
+\index{document\+\_\+repository.\+c@{document\+\_\+repository.\+c}!document\+\_\+repo\+\_\+add@{document\+\_\+repo\+\_\+add}}
+\index{document\+\_\+repo\+\_\+add@{document\+\_\+repo\+\_\+add}!document\+\_\+repository.\+c@{document\+\_\+repository.\+c}}
+\subsubsection{\texorpdfstring{document\+\_\+repo\+\_\+add()}{document\_repo\_add()}}
+{\footnotesize\ttfamily ssize\+\_\+t document\+\_\+repo\+\_\+add (\begin{DoxyParamCaption}\item[{\hyperlink{structdocument__repo__t}{document\+\_\+repo\+\_\+t} $\ast$}]{repo,  }\item[{\hyperlink{structdocument__t}{document\+\_\+t}}]{d }\end{DoxyParamCaption})}
+
+
+
+ドキュメントレポジトリ(document\+\_\+repo\+\_\+t)にドキュメントを追加する 
+
+\begin{DoxyReturn}{Returns}
+成功したら, 非負の整数. 失敗(メモリ割り当て失敗)したら-\/1.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{document__repository_8c_ad73236d39e69cbae2e618682cb2faa4e}{document\+\_\+repo\+\_\+init} 
+
+\hyperlink{document__repository_8c_a3e498b4e62c3223775c173a3b299f412}{document\+\_\+repo\+\_\+destroy} 
+
+\hyperlink{structdocument__repo__t}{document\+\_\+repo\+\_\+t} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{document__repository_8c_a3e498b4e62c3223775c173a3b299f412}\label{document__repository_8c_a3e498b4e62c3223775c173a3b299f412}} 
+\index{document\+\_\+repository.\+c@{document\+\_\+repository.\+c}!document\+\_\+repo\+\_\+destroy@{document\+\_\+repo\+\_\+destroy}}
+\index{document\+\_\+repo\+\_\+destroy@{document\+\_\+repo\+\_\+destroy}!document\+\_\+repository.\+c@{document\+\_\+repository.\+c}}
+\subsubsection{\texorpdfstring{document\+\_\+repo\+\_\+destroy()}{document\_repo\_destroy()}}
+{\footnotesize\ttfamily void document\+\_\+repo\+\_\+destroy (\begin{DoxyParamCaption}\item[{\hyperlink{structdocument__repo__t}{document\+\_\+repo\+\_\+t} $\ast$}]{repo }\end{DoxyParamCaption})}
+
+
+
+ドキュメントレポジトリ(document\+\_\+repo\+\_\+t)を破壊する. メモリを開放する 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{document__repository_8c_ad73236d39e69cbae2e618682cb2faa4e}{document\+\_\+repo\+\_\+init} 
+
+\hyperlink{document__repository_8c_aa6eebf0d0d4ec7f8d0a79dc7f061502b}{document\+\_\+repo\+\_\+add} 
+
+\hyperlink{structdocument__repo__t}{document\+\_\+repo\+\_\+t} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{document__repository_8c_a668ef0ea9ec3a0ca0bcb98b2406eb477}\label{document__repository_8c_a668ef0ea9ec3a0ca0bcb98b2406eb477}} 
+\index{document\+\_\+repository.\+c@{document\+\_\+repository.\+c}!document\+\_\+repo\+\_\+dump@{document\+\_\+repo\+\_\+dump}}
+\index{document\+\_\+repo\+\_\+dump@{document\+\_\+repo\+\_\+dump}!document\+\_\+repository.\+c@{document\+\_\+repository.\+c}}
+\subsubsection{\texorpdfstring{document\+\_\+repo\+\_\+dump()}{document\_repo\_dump()}}
+{\footnotesize\ttfamily \hyperlink{structdump__result__t}{dump\+\_\+result\+\_\+t} document\+\_\+repo\+\_\+dump (\begin{DoxyParamCaption}\item[{\hyperlink{structdocument__repo__t}{document\+\_\+repo\+\_\+t} $\ast$}]{repo }\end{DoxyParamCaption})}
+
+
+
+全ドキュメントのダンプを表すデータ構造 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{document__repository_8c_a668ef0ea9ec3a0ca0bcb98b2406eb477}{document\+\_\+repo\+\_\+dump} 
+
+\hyperlink{document__repository_8c_a2db0fd4b412e33d8bf3549feb98b22fb}{dump\+\_\+result\+\_\+next}
+\end{DoxySeeAlso}
+一般に全ドキュメントは大量になりうるため, ドキュメントダンプの結果は, ドキュメントを一つずつ返すことができる データ構造とする. 具体的には, dump\+\_\+result\+\_\+next という関数で, 次のドキュメントを返すようなデータ構造とする. 従って以下のように使う.
+
+\hyperlink{structdump__result__t}{dump\+\_\+result\+\_\+t} qr = document\+\_\+repo\+\_\+dump(repo);
+
+while (1) \{
+
+\hyperlink{structdocument__t}{document\+\_\+t} doc = dump\+\_\+result\+\_\+next(\&qr);
+
+if (!doc.label) break;
+
+... doc.\+data ...
+
+\} 全ドキュメントのダンプを取得する
+
+\hyperlink{structdump__result__t}{dump\+\_\+result\+\_\+t} 型の構造体を返す. その構造体は, dump\+\_\+result\+\_\+next(..) 関数を次々と呼ぶことで, 次々に ドキュメントを返す. \mbox{\Hypertarget{document__repository_8c_ad73236d39e69cbae2e618682cb2faa4e}\label{document__repository_8c_ad73236d39e69cbae2e618682cb2faa4e}} 
+\index{document\+\_\+repository.\+c@{document\+\_\+repository.\+c}!document\+\_\+repo\+\_\+init@{document\+\_\+repo\+\_\+init}}
+\index{document\+\_\+repo\+\_\+init@{document\+\_\+repo\+\_\+init}!document\+\_\+repository.\+c@{document\+\_\+repository.\+c}}
+\subsubsection{\texorpdfstring{document\+\_\+repo\+\_\+init()}{document\_repo\_init()}}
+{\footnotesize\ttfamily void document\+\_\+repo\+\_\+init (\begin{DoxyParamCaption}\item[{\hyperlink{structdocument__repo__t}{document\+\_\+repo\+\_\+t} $\ast$}]{repo }\end{DoxyParamCaption})}
+
+
+
+ドキュメントレポジトリ(document\+\_\+repo\+\_\+t)の初期化(空にする) 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{document__repository_8c_a3e498b4e62c3223775c173a3b299f412}{document\+\_\+repo\+\_\+destroy} 
+
+\hyperlink{document__repository_8c_aa6eebf0d0d4ec7f8d0a79dc7f061502b}{document\+\_\+repo\+\_\+add} 
+
+\hyperlink{structdocument__repo__t}{document\+\_\+repo\+\_\+t} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{document__repository_8c_a8f61dbccc6befcc6affb3f6461bff262}\label{document__repository_8c_a8f61dbccc6befcc6affb3f6461bff262}} 
+\index{document\+\_\+repository.\+c@{document\+\_\+repository.\+c}!document\+\_\+repo\+\_\+query@{document\+\_\+repo\+\_\+query}}
+\index{document\+\_\+repo\+\_\+query@{document\+\_\+repo\+\_\+query}!document\+\_\+repository.\+c@{document\+\_\+repository.\+c}}
+\subsubsection{\texorpdfstring{document\+\_\+repo\+\_\+query()}{document\_repo\_query()}}
+{\footnotesize\ttfamily \hyperlink{structquery__result__t}{query\+\_\+result\+\_\+t} document\+\_\+repo\+\_\+query (\begin{DoxyParamCaption}\item[{\hyperlink{structdocument__repo__t}{document\+\_\+repo\+\_\+t} $\ast$}]{repo,  }\item[{char $\ast$}]{query,  }\item[{size\+\_\+t}]{query\+\_\+len }\end{DoxyParamCaption})}
+
+
+
+ドキュメントレポジトリから指定文字列(query)を検索. 
+
+\begin{DoxyReturn}{Returns}
+検索結果(query\+\_\+result\+\_\+t) 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{structquery__result__t}{query\+\_\+result\+\_\+t} 
+
+\hyperlink{document__repository_8c_a7831dbf9173888563e4f19519d700472}{query\+\_\+result\+\_\+next} 
+
+\hyperlink{document__repository_8c_aa6eebf0d0d4ec7f8d0a79dc7f061502b}{document\+\_\+repo\+\_\+add}
+\end{DoxySeeAlso}
+ドキュメントレポジトリ内の全ドキュメント(これまでに document\+\_\+repo\+\_\+add されたすべてのドキュメント)から検索文字列 query の出現を検索する. query\+\_\+result\+\_\+next は, そこから全ての出現位置を取 得することができるようなデータである. 詳しくは, \hyperlink{structquery__result__t}{query\+\_\+result\+\_\+t} のド キュメントを参照 
+\begin{DoxyParams}{Parameters}
+{\em repo} & 検索対象のドキュメントレポジトリ \\
+\hline
+{\em query} & 検索文字列 \\
+\hline
+{\em query\+\_\+len} & queryの長さ(バイト数) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{document__repository_8c_a81fe0bb9c8482bbaa25b277dbf1a22ad}\label{document__repository_8c_a81fe0bb9c8482bbaa25b277dbf1a22ad}} 
+\index{document\+\_\+repository.\+c@{document\+\_\+repository.\+c}!document\+\_\+repo\+\_\+queryc@{document\+\_\+repo\+\_\+queryc}}
+\index{document\+\_\+repo\+\_\+queryc@{document\+\_\+repo\+\_\+queryc}!document\+\_\+repository.\+c@{document\+\_\+repository.\+c}}
+\subsubsection{\texorpdfstring{document\+\_\+repo\+\_\+queryc()}{document\_repo\_queryc()}}
+{\footnotesize\ttfamily size\+\_\+t document\+\_\+repo\+\_\+queryc (\begin{DoxyParamCaption}\item[{\hyperlink{structdocument__repo__t}{document\+\_\+repo\+\_\+t} $\ast$}]{repo,  }\item[{char $\ast$}]{query,  }\item[{size\+\_\+t}]{query\+\_\+len }\end{DoxyParamCaption})}
+
+
+
+ドキュメントレポジトリから指定文字列(query)を検索しその出現回数 (のみ)を返す 
+
+\begin{DoxyReturn}{Returns}
+出現回数 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{structquery__result__t}{query\+\_\+result\+\_\+t} 
+
+\hyperlink{document__repository_8c_a7831dbf9173888563e4f19519d700472}{query\+\_\+result\+\_\+next} 
+
+\hyperlink{document__repository_8c_a8f61dbccc6befcc6affb3f6461bff262}{document\+\_\+repo\+\_\+query} 
+
+\hyperlink{document__repository_8c_aa6eebf0d0d4ec7f8d0a79dc7f061502b}{document\+\_\+repo\+\_\+add}
+\end{DoxySeeAlso}
+ドキュメントレポジトリ内の全ドキュメント(これまでに document\+\_\+repo\+\_\+add されたすべてのドキュメント)から検索文字列 query の出現を検索する. query\+\_\+result\+\_\+next は, そこから全ての出現位置を取 得することができるようなデータである. 詳しくは, \hyperlink{structquery__result__t}{query\+\_\+result\+\_\+t} のド キュメントを参照 
+\begin{DoxyParams}{Parameters}
+{\em repo} & 検索対象のドキュメントレポジトリ \\
+\hline
+{\em query} & 検索文字列 \\
+\hline
+{\em query\+\_\+len} & queryの長さ(バイト数) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{document__repository_8c_a7831dbf9173888563e4f19519d700472}\label{document__repository_8c_a7831dbf9173888563e4f19519d700472}} 
+\index{document\+\_\+repository.\+c@{document\+\_\+repository.\+c}!query\+\_\+result\+\_\+next@{query\+\_\+result\+\_\+next}}
+\index{query\+\_\+result\+\_\+next@{query\+\_\+result\+\_\+next}!document\+\_\+repository.\+c@{document\+\_\+repository.\+c}}
+\subsubsection{\texorpdfstring{query\+\_\+result\+\_\+next()}{query\_result\_next()}}
+{\footnotesize\ttfamily \hyperlink{structoccurrence__t}{occurrence\+\_\+t} query\+\_\+result\+\_\+next (\begin{DoxyParamCaption}\item[{\hyperlink{structquery__result__t}{query\+\_\+result\+\_\+t} $\ast$}]{qr }\end{DoxyParamCaption})}
+
+
+
+document\+\_\+repo\+\_\+query で得られた検索結果から, 次の出現位置を得る 
+
+\begin{DoxyReturn}{Returns}
+検索文字列の次の出現位置(occurrence\+\_\+t)
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{document__repository_8c_a8f61dbccc6befcc6affb3f6461bff262}{document\+\_\+repo\+\_\+query} 
+
+\hyperlink{structquery__result__t}{query\+\_\+result\+\_\+t}
+\end{DoxySeeAlso}
+document\+\_\+repo\+\_\+query が返した「検索結果(\hyperlink{structquery__result__t}{query\+\_\+result\+\_\+t} 型の データ)」から, 検索文字列の「次の」出現位置を得る. 検索結果に対して この関数を次々と呼び出すことで, すべての出現位置を得ることができる. document\+\_\+repo\+\_\+query 現在の検索アルゴリズムは非常に単純(非効率)なも ので, (putで)蓄えられたドキュメントを順に, スキャンしていくだけのも の. ひとつのドキュメントから文字列を検索するには\+Cのstrstr 関数を 呼ぶ(man strstr して調べよ). 
+\begin{DoxyParams}{Parameters}
+{\em qr} & document\+\_\+repo\+\_\+queryが返した検索結果 \\
+\hline
+\end{DoxyParams}
